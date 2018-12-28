@@ -23,7 +23,7 @@ class UrlToImage{
 
 
 
-public class Source {
+public class Sources {
 
     private String id;
     private String description;
@@ -36,12 +36,12 @@ public class Source {
     private UrlToImage urlToImage;
 
 
-    public Source() {
+    public Sources() {
     }
 
-    public Source(String id, String description, String name, String author,
-                  String title, String url, String publishedAt, String content,
-                  UrlToImage urlToImage) {
+    public Sources(String id, String description, String name, String author,
+                   String title, String url, String publishedAt, String content,
+                   UrlToImage urlToImage) {
 
 
         this.id = id;

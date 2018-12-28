@@ -4,16 +4,16 @@ import java.util.List;
 
 public class Website {
     public  String status;
-    public List<Source> source;
+    public List<Sources> sources;
 
     public Website(){
 
     }
 
-    public Website(String status, List<Source> source){
+    public Website(String status, List<Sources> sources){
 
         this.status = status;
-        this.source = source;
+        this.sources = sources;
 
     }
 
@@ -25,11 +25,11 @@ public class Website {
         this.status = status;
     }
 
-    public List<Source> getSource() {
-        return source;
+    public List<Sources> getSources() {
+        return sources;
     }
 
-    public void setSource(List<Source> source) {
-        this.source = source;
+    public void setSources(List<Sources> sources) {
+        this.sources = sources;
     }
 }

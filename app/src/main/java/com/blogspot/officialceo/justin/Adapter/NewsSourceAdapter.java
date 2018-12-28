@@ -11,7 +11,6 @@ import android.widget.TextView;
 import com.blogspot.officialceo.justin.Interface.IconBetterIdeaService;
 import com.blogspot.officialceo.justin.Interface.ItemClickListener;
 import com.blogspot.officialceo.justin.POJO.IconBetterIdea;
-import com.blogspot.officialceo.justin.POJO.Source;
 import com.blogspot.officialceo.justin.POJO.Website;
 import com.blogspot.officialceo.justin.R;
 import com.blogspot.officialceo.justin.common.Common;
@@ -49,12 +48,12 @@ public class NewsSourceAdapter extends RecyclerView.Adapter<NewsSourceAdapter.Ne
     @Override
     public void onBindViewHolder(@NonNull final NewsViewHolder newsViewHolder, int i) {
 
-//        Source website1 = website.getSource().get(i);
+//        Sources website1 = website.getSources().get(i);
 //
 //        String sourceName = website1.getName();
 
         StringBuilder iconBetterApi = new StringBuilder("https://i.olsh.me/allicons.json?url=");
-        iconBetterApi.append(website.getSource().get(i).getUrl());
+        iconBetterApi.append(website.getSources().get(i).getUrl());
 
         iconBetterIdeaService.getIconUrl(iconBetterApi.toString()).enqueue(new Callback<IconBetterIdea>() {
             @Override
@@ -77,7 +76,7 @@ public class NewsSourceAdapter extends RecyclerView.Adapter<NewsSourceAdapter.Ne
         });
 
 
-        newsViewHolder.source_title.setText(website.getSource().get(i).getName());
+        newsViewHolder.source_title.setText(website.getSources().get(i).getName());
 
 
     }
@@ -85,14 +84,10 @@ public class NewsSourceAdapter extends RecyclerView.Adapter<NewsSourceAdapter.Ne
     @Override
     public int getItemCount() {
 
-//        if (website.getSource() == null){
-//
-//            return 0;
-//        }else{
 
-        return website.getSource().size();
+        return website.getSources().size();
 
-     //  }
+
     }
 
     class NewsViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{

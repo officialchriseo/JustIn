@@ -1,15 +1,11 @@
 package com.blogspot.officialceo.justin;
 
-import android.arch.lifecycle.ViewModelProvider;
-import android.arch.lifecycle.ViewModelProviders;
-import android.databinding.DataBindingUtil;
 import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.LayoutInflater;
+import android.util.Log;
 
 import com.blogspot.officialceo.justin.Adapter.NewsSourceAdapter;
 import com.blogspot.officialceo.justin.Interface.NewsService;
@@ -104,6 +100,7 @@ public class MainActivity extends AppCompatActivity{
 
                 alertDialog.show();
 
+
                 //fetching new Data
 
                 newsService.getSources().enqueue(new Callback<Website>() {
@@ -112,7 +109,10 @@ public class MainActivity extends AppCompatActivity{
 
                         newsSourceAdapter = new NewsSourceAdapter(getBaseContext(), response.body());
                         newsSourceAdapter.notifyDataSetChanged();
+                        Log.d("Response...", response.body().getSources().toString());
                         recyclerView.setAdapter(newsSourceAdapter);
+
+                        alertDialog.dismiss();
 
                         //save to cache
 
@@ -122,6 +122,8 @@ public class MainActivity extends AppCompatActivity{
 
                     @Override
                     public void onFailure(Call<Website> call, Throwable t) {
+
+                        alertDialog.dismiss();
 
                     }
                 });
