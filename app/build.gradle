@@ -50,5 +50,11 @@ dependencies {
     annotationProcessor "android.arch.lifecycle:compiler:1.1.1"
     implementation "android.arch.lifecycle:runtime:1.1.1"
     implementation "android.arch.lifecycle:extensions:1.1.1"
+    //Diagonal Layout for images
+    implementation 'com.github.florent37:diagonallayout:1.0.9'
+    //kenburns for image animation
+    implementation 'com.flaviofaria:kenburnsview:1.0.7'
+    //Techizen Ago library
+    implementation 'com.github.curioustechizen.android-ago:library:1.4.0'
 
 }

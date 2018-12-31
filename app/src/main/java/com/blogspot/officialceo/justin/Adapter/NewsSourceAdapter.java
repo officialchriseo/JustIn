@@ -1,6 +1,7 @@
 package com.blogspot.officialceo.justin.Adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -10,6 +11,7 @@ import android.widget.TextView;
 
 import com.blogspot.officialceo.justin.Interface.IconBetterIdeaService;
 import com.blogspot.officialceo.justin.Interface.ItemClickListener;
+import com.blogspot.officialceo.justin.ListNews;
 import com.blogspot.officialceo.justin.POJO.IconBetterIdea;
 import com.blogspot.officialceo.justin.POJO.Website;
 import com.blogspot.officialceo.justin.R;
@@ -48,7 +50,7 @@ public class NewsSourceAdapter extends RecyclerView.Adapter<NewsSourceAdapter.Ne
     @Override
     public void onBindViewHolder(@NonNull final NewsViewHolder newsViewHolder, int i) {
 
-//        Sources website1 = website.getSources().get(i);
+//       Sources website1 = website.getSources().get(i);
 //
 //        String sourceName = website1.getName();
 
@@ -78,6 +80,17 @@ public class NewsSourceAdapter extends RecyclerView.Adapter<NewsSourceAdapter.Ne
 
         newsViewHolder.source_title.setText(website.getSources().get(i).getName());
 
+        newsViewHolder.setItemClickListener(new ItemClickListener() {
+            @Override
+            public void onClick(View view, int position, boolean isLongClick) {
+
+                Intent intent = new Intent(context, ListNews.class);
+                intent.putExtra("source", website.getSources().get(position).getId());
+                context.startActivity(intent);
+
+            }
+        });
+
 
     }
 
@@ -102,6 +115,8 @@ public class NewsSourceAdapter extends RecyclerView.Adapter<NewsSourceAdapter.Ne
 
             source_title = itemView.findViewById(R.id.source_name);
             source_image = itemView.findViewById(R.id.source_image);
+
+            itemView.setOnClickListener(this);
 
         }
 
