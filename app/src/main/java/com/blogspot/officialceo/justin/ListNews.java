@@ -4,6 +4,7 @@ import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.widget.TextView;
 
 import com.blogspot.officialceo.justin.Adapter.ListNewsAdapter;
@@ -44,6 +45,8 @@ public class ListNews extends AppCompatActivity {
         spotsDialog = new SpotsDialog(this);
 
 
+
+
         //views
 
         swipeRefreshLayout = findViewById(R.id.swipeRefresh);
@@ -58,6 +61,7 @@ public class ListNews extends AppCompatActivity {
         kbv = findViewById(R.id.top_image);
         top_author = findViewById(R.id.top_author);
         top_title = findViewById(R.id.top_title);
+
 
         //intent
 
@@ -84,6 +88,12 @@ public class ListNews extends AppCompatActivity {
                 @Override
                 public void onResponse(Call<News> call, Response<News> response) {
                     spotsDialog.dismiss();
+
+
+
+                        Log.d("TEST...", "ON RESPONSE " + response.raw());
+
+
 
                     Glide.with(getBaseContext()).load(response.body().getArticles().get(0).getUrlToImage()).into(kbv);
 

@@ -26,11 +26,12 @@ public class Common {
 
 
     //https://newsapi.org/v2/everything?domains=wsj.com&apiKey=578e28d5ed924e489519de26badca3c3
+    //https://newsapi.org/v2/top-headlines?sources=techcrunch&apiKey=578e28d5ed924e489519de26badca3c3
 
     public static String getAPIUrl(String source, String apiKey){
 
-        StringBuilder apiUrl = new StringBuilder("https://newsapi.org/v2/everything?domains=");
-        return apiUrl.append(source).append("&apiKey").append(apiKey).toString();
+        StringBuilder apiUrl = new StringBuilder("https://newsapi.org/v2/top-headlines?sources=");
+        return apiUrl.append(source).append("&apiKey=").append(apiKey).toString();
 
     }
 
