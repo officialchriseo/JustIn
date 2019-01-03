@@ -4,6 +4,18 @@ public class Articles {
 
     private String title, author, description, url, urlToImage, publishedAt;
 
+    public Articles() {
+    }
+
+    public Articles(String title, String author, String description, String url, String urlToImage, String publishedAt) {
+        this.title = title;
+        this.author = author;
+        this.description = description;
+        this.url = url;
+        this.urlToImage = urlToImage;
+        this.publishedAt = publishedAt;
+    }
+
     public String getTitle() {
         return title;
     }

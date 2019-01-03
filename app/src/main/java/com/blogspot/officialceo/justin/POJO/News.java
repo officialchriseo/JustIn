@@ -6,7 +6,16 @@ public class News {
 
     private String source;
     private String totalResults;
-    private List<Articles> article;
+    private List<Articles> articles;
+
+    public News() {
+    }
+
+    public News(String source, String totalResults, List<Articles> article) {
+        this.source = source;
+        this.totalResults = totalResults;
+        this.articles = article;
+    }
 
     public String getSource() {
         return source;
@@ -25,10 +34,10 @@ public class News {
     }
 
     public List<Articles> getArticles() {
-        return article;
+        return articles;
     }
 
     public void setArticles(List<Articles> article) {
-        this.article = article;
+        this.articles = article;
     }
 }

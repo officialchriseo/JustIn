@@ -1,6 +1,8 @@
 package com.blogspot.officialceo.justin.Adapter;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -8,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.blogspot.officialceo.justin.DetailArticle;
 import com.blogspot.officialceo.justin.Interface.ItemClickListener;
 import com.blogspot.officialceo.justin.POJO.Articles;
 import com.blogspot.officialceo.justin.R;
@@ -42,6 +45,7 @@ public class ListNewsAdapter extends RecyclerView.Adapter<ListNewsAdapter.ListNe
         return new ListNewsViewHolder(view);
     }
 
+    @SuppressLint("SetTextI18n")
     @Override
     public void onBindViewHolder(@NonNull ListNewsViewHolder listNewsViewHolder, int i) {
 
@@ -68,6 +72,15 @@ public class ListNewsAdapter extends RecyclerView.Adapter<ListNewsAdapter.ListNe
         }
 
         listNewsViewHolder.article_time.setReferenceTime(date.getTime());
+
+        listNewsViewHolder.setItemClickListener(new ItemClickListener() {
+            @Override
+            public void onClick(View view, int position, boolean isLongClick) {
+                Intent detail = new Intent(context, DetailArticle.class);
+                detail.putExtra("webURL", articlesList.get(position).getUrl());
+                context.startActivity(detail);
+            }
+        });
 
     }
 
